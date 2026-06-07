@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Privacy Policy — CookSavvy</title>
+    <meta
+      name="description"
+      content="How CookSavvy handles your data: no cross-app tracking, no selling data, anonymous by default."
+    />
+    <meta name="theme-color" content="#E47A2E" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="assets/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&display=swap"
+    />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav container" aria-label="Primary">
+        <a class="nav__logo" href="index.html" aria-label="CookSavvy home">
+          <img src="assets/logo.svg" alt="CookSavvy" width="220" height="48" />
+        </a>
+        <div class="nav__menu">
+          <ul class="nav__links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="terms.html">Terms</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="legal section">
+      <div class="container">
+        <article class="legal__inner">
+          <a class="legal__back" href="index.html">&larr; Back to home</a>
+
+          <h1>Privacy Policy</h1>
+          <p class="legal__updated">Last updated: 7 June 2026</p>
+
+          <h2>Who we are</h2>
+          <p>
+            CookSavvy ("the app", "we", "us") is operated by
+            <span class="placeholder">[COMPANY_LEGAL_NAME]</span>. Questions about
+            this policy: <span class="placeholder">[CONTACT_EMAIL]</span>.
+          </p>
+
+          <h2>Summary</h2>
+          <ul>
+            <li>We do <strong>not</strong> track you across apps or websites and do <strong>not</strong> sell your data.</li>
+            <li>The app works anonymously by default; signing in with Apple is optional.</li>
+            <li>Photos you scan are sent to our backend solely to detect ingredients, then discarded.</li>
+            <li>We use privacy-preserving analytics and crash reporting to improve the app.</li>
+          </ul>
+
+          <h2>Information we collect</h2>
+
+          <h3>Account information</h3>
+          <ul>
+            <li>
+              <strong>Anonymous identifier.</strong> On first launch we create an
+              anonymous account (via Supabase) so the app can reach its backend.
+              This is a random identifier, not tied to your personal identity.
+            </li>
+            <li>
+              <strong>Sign in with Apple (optional).</strong> If you choose to sign
+              in, Apple provides a stable user identifier that links your anonymous
+              data to a persistent account. We do not receive your Apple password.
+              We only request the minimum identifier needed to maintain your account.
+            </li>
+          </ul>
+
+          <h3>Photos you scan</h3>
+          <p>
+            When you use camera ingredient detection, the captured image is sent to
+            our backend AI service to identify ingredients. Images are processed
+            transiently for that request and are not used to build a profile of you
+            or for advertising. (Camera access is governed by the system permission
+            prompt.)
+          </p>
+
+          <h3>Usage and diagnostics</h3>
+          <ul>
+            <li>
+              <strong>Analytics (TelemetryDeck).</strong> Aggregate,
+              privacy-preserving product-interaction events (e.g. "recipe viewed")
+              to understand feature usage. No IDFA, no cross-app tracking.
+            </li>
+            <li>
+              <strong>Crash reports (Sentry).</strong> Diagnostic data when the app
+              crashes or logs an error, used to fix bugs. We log error
+              <em>types</em>, not raw error payloads, to avoid capturing sensitive
+              data.
+            </li>
+          </ul>
+
+          <h3>Subscriptions</h3>
+          <p>
+            Purchases are handled by Apple via StoreKit. We receive entitlement
+            status (e.g. active/trial), not your payment details.
+          </p>
+
+          <h2>How we use information</h2>
+          <ul>
+            <li>Provide and operate the app's features (ingredient detection, recipes, subscriptions).</li>
+            <li>Maintain your account and restore purchases.</li>
+            <li>Improve reliability and usability through aggregate analytics and crash diagnostics.</li>
+          </ul>
+
+          <h2>Data sharing</h2>
+          <p>
+            We share data only with processors that help us run the app: Apple
+            (sign-in, payments), Supabase (backend/auth), TelemetryDeck (analytics),
+            and Sentry (crash reporting). We do not sell personal data and do not use
+            it for cross-app tracking.
+          </p>
+
+          <h2>Data retention and deletion</h2>
+          <ul>
+            <li>
+              You can delete your account at any time in
+              <strong>Settings &rarr; Delete Account</strong>. This permanently
+              deletes your server-side account and associated data and removes your
+              personal data stored on the device.
+            </li>
+            <li>
+              Anonymous sessions and transient photo data are retained only as long
+              as needed to provide the feature requested.
+            </li>
+          </ul>
+
+          <h2>Your rights</h2>
+          <p>
+            Depending on your region, you may have rights to access, correct, or
+            delete your data. Contact
+            <span class="placeholder">[CONTACT_EMAIL]</span> or use in-app account
+            deletion.
+          </p>
+
+          <h2>Children</h2>
+          <p>
+            CookSavvy is not directed to children under 13 (or the equivalent
+            minimum age in your region).
+          </p>
+
+          <h2>Changes</h2>
+          <p>
+            We may update this policy; material changes will be reflected by the
+            "Last updated" date.
+          </p>
+
+          <h2>Contact</h2>
+          <p>
+            <span class="placeholder">[COMPANY_LEGAL_NAME]</span> &mdash;
+            <span class="placeholder">[CONTACT_EMAIL]</span>. Governing law:
+            <span class="placeholder">[GOVERNING_JURISDICTION]</span>.
+          </p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer__bottom" style="margin-top: 0; padding-top: 0; border: 0;">
+          <p>&copy; <span id="year">2026</span> CookSavvy. All rights reserved.</p>
+          <nav class="footer__links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="terms.html">Terms</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

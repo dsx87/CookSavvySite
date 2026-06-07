@@ -33,6 +33,8 @@ cooksavvy-landing/
 │   ├── logo.svg          # wordmark + mark
 │   ├── favicon.svg        # tab / touch icon
 │   └── app-store-badge.svg
+├── privacy.html         # Privacy Policy (content from the app's docs/legal)
+├── terms.html           # Terms of Use / subscription terms
 └── README.md
 ```
 
@@ -56,8 +58,10 @@ Because it's fully static, it deploys anywhere:
 - **Netlify / Vercel / Cloudflare Pages** — drag-and-drop the folder, or connect the repo
   (no build command needed; publish directory is the project root)
 
-The app's legal links already point at `https://cooksavvy.app/privacy` and
-`https://cooksavvy.app/terms`, so hosting this at `cooksavvy.app` is the natural fit.
+No domain is wired yet. The Privacy Policy and Terms are served as local pages
+(`privacy.html`, `terms.html`) and linked from the footer, so they work on any host
+without a custom domain. When the app ships, point `LegalLinks` in the iOS app at
+wherever this site is hosted (e.g. `<host>/privacy` and `<host>/terms`).
 
 ## ⚠️ Placeholders to fill in before launch
 
@@ -67,8 +71,9 @@ Search the codebase for `TODO` — these are the spots to update:
 |------|-------|----------------|
 | **App Store URL** | every `href="#"` on an App Store badge / CTA in `index.html` | `#` placeholder |
 | **Pricing** | Pricing section in `index.html` | `$2.99 / month` (confirm before launch) |
-| **Support email** | footer "Contact" link in `index.html` | `hello@cooksavvy.app` |
-| **OG share image** | `og:image` meta tag in `index.html` | `assets/og-image.png` (not yet created) |
+| **Legal values** | `privacy.html` & `terms.html` | `[COMPANY_LEGAL_NAME]`, `[CONTACT_EMAIL]`, `[GOVERNING_JURISDICTION]` (shown highlighted) |
+| **Contact link** | footer in `index.html` | removed until a support email exists |
+| **Domain / SEO** | `index.html` `<head>` | `canonical`, `og:url`, `og:image` omitted until a domain is chosen |
 
 The App Store badge is a placeholder rendition; replace `assets/app-store-badge.svg`
 with Apple's official badge from the

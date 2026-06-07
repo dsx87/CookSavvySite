@@ -836,6 +836,116 @@ h2 {
 }
 
 /* --------------------------------------------------------------------------
+   Legal pages (privacy.html, terms.html) — readable long-form prose
+   -------------------------------------------------------------------------- */
+.legal {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.legal__inner {
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.legal__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.legal__back:hover {
+  color: var(--accent);
+}
+
+.legal h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  letter-spacing: -0.01em;
+}
+
+.legal__updated {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.legal h2 {
+  font-size: 1.4rem;
+  margin-top: 2.25rem;
+  margin-bottom: 0.6rem;
+}
+
+.legal h3 {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.legal p,
+.legal li {
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.legal p {
+  margin-bottom: 1rem;
+}
+
+.legal ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legal a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal strong {
+  color: var(--text);
+}
+
+.legal code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.85em;
+  background: var(--surface);
+  padding: 0.1em 0.4em;
+  border-radius: 6px;
+  word-break: break-all;
+}
+
+/* bracketed legal placeholders, e.g. [CONTACT_EMAIL], stand out as TODO */
+.legal .placeholder {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.85em;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 0.1em 0.4em;
+  border-radius: 6px;
+}
+
+.legal blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  padding: 0.9rem 1.1rem;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  margin-bottom: 1.25rem;
+}
+
+.legal blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
    11. Scroll-reveal animation (progressive enhancement; JS adds .is-visible)
    -------------------------------------------------------------------------- */
 .reveal {
