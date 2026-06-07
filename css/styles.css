@@ -293,6 +293,14 @@ h3 {
   width: auto;
 }
 
+/* Desktop: links + CTA sit on one row, pushed to the right by the nav's
+   space-between. The mobile media query below overrides this to a dropdown. */
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
 .nav__links {
   display: flex;
   align-items: center;
