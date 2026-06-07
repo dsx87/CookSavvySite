@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-label="CookSavvy">
+  <!-- Mark: a rounded pan with a chef-spark, in the brand burnt-orange -->
+  <g>
+    <circle cx="24" cy="24" r="16" fill="#E47A2E"/>
+    <!-- pan handle -->
+    <rect x="36" y="21.5" width="13" height="5" rx="2.5" fill="#E47A2E"/>
+    <!-- contents / spark -->
+    <circle cx="19" cy="24" r="3.4" fill="#FFFCF8"/>
+    <circle cx="28" cy="20" r="2.4" fill="#FFFCF8"/>
+    <circle cx="27" cy="29" r="2" fill="#FFFCF8"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="58" y="32" font-family="ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="24" font-weight="700" fill="currentColor" letter-spacing="-0.5">
+    Cook<tspan fill="#E47A2E">Savvy</tspan>
+  </text>
+</svg>

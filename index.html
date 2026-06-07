@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CookSavvy — Dinner, Decided. Recipes from what's in your fridge</title>
+    <meta
+      name="description"
+      content="Tell CookSavvy what's in your fridge and get one confident dinner decision in under 30 seconds. Snap your ingredients, find recipes that fit, and cook step-by-step."
+    />
+    <meta name="theme-color" content="#E47A2E" />
+    <link rel="canonical" href="https://cooksavvy.app/" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CookSavvy" />
+    <meta property="og:title" content="CookSavvy — Dinner, Decided." />
+    <meta
+      property="og:description"
+      content="Turn what's in your kitchen into dinner faster. Snap your ingredients, get recipes that fit, and cook step-by-step."
+    />
+    <meta property="og:url" content="https://cooksavvy.app/" />
+    <meta property="og:image" content="https://cooksavvy.app/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CookSavvy — Dinner, Decided." />
+    <meta
+      name="twitter:description"
+      content="Turn what's in your kitchen into dinner faster."
+    />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="assets/favicon.svg" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Progressive-enhancement JS (non-blocking) -->
+    <script src="js/main.js" defer></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ===================== Header / nav ===================== -->
+    <header class="site-header">
+      <nav class="nav container" aria-label="Primary">
+        <a class="nav__logo" href="#top" aria-label="CookSavvy home">
+          <img src="assets/logo.svg" alt="CookSavvy" width="220" height="48" />
+        </a>
+
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+          <div class="nav__cta">
+            <!-- TODO: replace href with the live App Store listing URL -->
+            <a class="badge-link" href="#" aria-label="Download CookSavvy on the App Store">
+              <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="180" height="60" />
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <span id="top"></span>
+
+      <!-- ===================== Hero ===================== -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero__copy">
+            <h1 class="hero__title" id="hero-title">
+              Dinner,<br /><span class="accent">Decided.</span>
+            </h1>
+            <p class="lead hero__lead">
+              Tell CookSavvy what's in your fridge — and get one confident dinner
+              decision in under 30 seconds. No endless scrolling, no wasted food.
+            </p>
+            <div class="hero__actions">
+              <!-- TODO: replace href with the live App Store listing URL -->
+              <a class="badge-link" href="#" aria-label="Download CookSavvy on the App Store">
+                <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="180" height="60" />
+              </a>
+              <a class="btn btn--ghost" href="#how">See how it works</a>
+            </div>
+            <p class="hero__note">Free to start · CookSavvy+ has a 7-day free trial</p>
+          </div>
+
+          <!-- CSS-drawn phone mockup: ingredients → matched recipe -->
+          <div class="hero__media" aria-hidden="true">
+            <div class="phone">
+              <div class="phone__screen">
+                <p class="phone__greeting">Dinner from what's on hand 🍽️</p>
+                <p class="phone__q">What's for dinner?</p>
+                <div class="chips">
+                  <span class="chip">🍗 Chicken</span>
+                  <span class="chip">🍚 Rice</span>
+                  <span class="chip">🥦 Broccoli</span>
+                  <span class="chip">🧄 Garlic</span>
+                  <span class="chip">🍋 Lemon</span>
+                </div>
+                <div class="recipe-card">
+                  <div class="recipe-card__img"></div>
+                  <p class="recipe-card__title">Garlic Lemon Chicken &amp; Rice</p>
+                  <p class="recipe-card__match">✓ Uses all 5 of your ingredients</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Features ===================== -->
+      <section class="section" id="features" aria-labelledby="features-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <span class="eyebrow">Why CookSavvy</span>
+            <h2 id="features-title">From fridge to plate, faster</h2>
+            <p class="lead">
+              Everything you need to turn the ingredients you already have into
+              a meal you'll actually want to cook tonight.
+            </p>
+          </div>
+
+          <div class="features__grid">
+            <article class="feature feature--accent reveal">
+              <div class="feature__icon" aria-hidden="true">📸</div>
+              <h3>Snap your ingredients</h3>
+              <p>
+                Point your camera at the fridge or pantry and CookSavvy adds what
+                it sees — no typing required.
+              </p>
+            </article>
+
+            <article class="feature feature--mint reveal">
+              <div class="feature__icon" aria-hidden="true">🎯</div>
+              <h3>Recipes that fit</h3>
+              <p>
+                Every match shows exactly which ingredients it uses and what's
+                missing — so there are no surprises.
+              </p>
+            </article>
+
+            <article class="feature feature--sky reveal">
+              <div class="feature__icon" aria-hidden="true">🍳</div>
+              <h3>Cook Mode</h3>
+              <p>
+                Follow full-screen, step-by-step instructions with built-in
+                timers that keep your hands free.
+              </p>
+            </article>
+
+            <article class="feature feature--lavender reveal">
+              <div class="feature__icon" aria-hidden="true">🛒</div>
+              <h3>Smart shopping list</h3>
+              <p>
+                Turn the ingredients you're missing into an organized list,
+                grouped by recipe.
+              </p>
+              <span class="feature__tag">CookSavvy+</span>
+            </article>
+
+            <article class="feature feature--rose reveal">
+              <div class="feature__icon" aria-hidden="true">🌱</div>
+              <h3>Waste less</h3>
+              <p>
+                The "Use It All" filter prioritizes recipes that rescue what
+                needs using up before it goes off.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== How it works ===================== -->
+      <section class="section" id="how" aria-labelledby="how-title" style="background: var(--surface-light);">
+        <div class="container">
+          <div class="section__head reveal">
+            <span class="eyebrow">How it works</span>
+            <h2 id="how-title">Three steps to dinner</h2>
+          </div>
+
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step__num" aria-hidden="true"></span>
+              <h3>Add what you have</h3>
+              <p>
+                Snap a photo or tap ingredients from a list of over a thousand,
+                organized by category.
+              </p>
+            </li>
+            <li class="step reveal">
+              <span class="step__num" aria-hidden="true"></span>
+              <h3>Pick a recipe that fits</h3>
+              <p>
+                Browse ranked matches and see at a glance how much of each recipe
+                you can already make.
+              </p>
+            </li>
+            <li class="step reveal">
+              <span class="step__num" aria-hidden="true"></span>
+              <h3>Cook it step-by-step</h3>
+              <p>
+                Switch to Cook Mode and follow along with timers — then rate it
+                when you're done.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===================== Pricing ===================== -->
+      <section class="section" id="pricing" aria-labelledby="pricing-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <span class="eyebrow">Pricing</span>
+            <h2 id="pricing-title">Start free, upgrade when you're ready</h2>
+            <p class="lead">
+              The core experience is free forever. CookSavvy+ unlocks unlimited
+              scanning and smarter recipe sources.
+            </p>
+          </div>
+
+          <div class="pricing__grid">
+            <!-- Free plan -->
+            <article class="plan reveal" aria-labelledby="plan-free">
+              <h3 class="plan__name" id="plan-free">Free</h3>
+              <p class="plan__price">$0<small> / forever</small></p>
+              <p class="plan__trial">&nbsp;</p>
+              <ul class="plan__features">
+                <li>Manual ingredient input</li>
+                <li>5 camera ingredient scans per week</li>
+                <li>Full offline recipe database</li>
+                <li>Ingredient matching &amp; "Use It All" filter</li>
+                <li>Cook Mode with timers</li>
+                <li>Dietary &amp; mood filters</li>
+              </ul>
+              <div class="plan__cta">
+                <!-- TODO: replace href with the live App Store listing URL -->
+                <a class="btn btn--ghost" href="#">Get the app</a>
+              </div>
+            </article>
+
+            <!-- Premium plan -->
+            <article class="plan plan--featured reveal" aria-labelledby="plan-premium">
+              <span class="plan__flag">Most popular</span>
+              <h3 class="plan__name" id="plan-premium">CookSavvy+</h3>
+              <!-- TODO: confirm final pricing before launch -->
+              <p class="plan__price">$2.99<small> / month</small></p>
+              <p class="plan__trial">7-day free trial · or save with annual</p>
+              <ul class="plan__features">
+                <li>Everything in Free</li>
+                <li>Unlimited camera ingredient scanning</li>
+                <li>Online &amp; AI-generated recipes</li>
+                <li>Smart shopping lists</li>
+                <li>All curated collections</li>
+                <li>Smarter personalized suggestions</li>
+              </ul>
+              <div class="plan__cta">
+                <!-- TODO: replace href with the live App Store listing URL -->
+                <a class="btn btn--primary" href="#">Try CookSavvy+ free</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== Footer ===================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <img src="assets/logo.svg" alt="CookSavvy" width="220" height="48" />
+            <p>Turn what's in your kitchen into dinner faster.</p>
+          </div>
+          <nav class="footer__links" aria-label="Footer">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="https://cooksavvy.app/privacy">Privacy</a>
+            <a href="https://cooksavvy.app/terms">Terms</a>
+            <!-- TODO: confirm support email before launch -->
+            <a href="mailto:hello@cooksavvy.app">Contact</a>
+          </nav>
+        </div>
+        <div class="footer__bottom">
+          <p>&copy; <span id="year">2026</span> CookSavvy. All rights reserved.</p>
+          <p>Made for home cooks 🍳</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

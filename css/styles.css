@@ -1,0 +1,844 @@
+/* ==========================================================================
+   styles.css — CookSavvy landing page
+   Design tokens mirror the iOS app's Theme/AppTheme.swift so the site feels
+   like a natural extension of the product. Mobile-first, system-font, no deps.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens — light theme (warm parchment + burnt-orange accent)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Surfaces */
+  --bg: #f7f2ec;
+  --surface: #efeddd;
+  --surface-light: #e6dbcf;
+  --card: #fffcf8;
+
+  /* Accents (semantic, taken from the app) */
+  --accent: #e47a2e;
+  --accent-strong: #d96b1f;
+  --mint: #2f9f88;
+  --rose: #d96078;
+  --lavender: #7f68d9;
+  --sky: #4b8ef6;
+  --gold: #d7a642;
+
+  /* Text */
+  --text: #1f1a17;
+  --text-secondary: #6d635b;
+  --text-tertiary: #a09488;
+  --divider: rgba(31, 26, 23, 0.1);
+
+  /* Soft accent washes (≈15% opacity, used for chips/icon tiles) */
+  --accent-soft: rgba(228, 122, 46, 0.14);
+  --mint-soft: rgba(47, 159, 136, 0.14);
+  --rose-soft: rgba(217, 96, 120, 0.14);
+  --lavender-soft: rgba(127, 104, 217, 0.14);
+  --sky-soft: rgba(75, 142, 246, 0.14);
+  --gold-soft: rgba(215, 166, 66, 0.16);
+
+  /* Shape */
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 20px;
+  --r-xl: 24px;
+  --r-pill: 32px;
+
+  /* Elevation — soft, warm shadows echoing the app's .neonGlow feel */
+  --shadow-sm: 0 1px 3px rgba(31, 26, 23, 0.06), 0 4px 12px rgba(31, 26, 23, 0.05);
+  --shadow-md: 0 8px 30px rgba(31, 26, 23, 0.08);
+  --shadow-accent: 0 10px 30px rgba(228, 122, 46, 0.35);
+
+  /* Layout rhythm */
+  --page-padding: 20px;
+  --max-width: 1120px;
+  --header-height: 72px;
+
+  /* Typography — system rounded stack to match the app */
+  --font: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   2. Design tokens — dark theme (deep navy-charcoal, vivid orange)
+   -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f17;
+    --surface: #1c1c26;
+    --surface-light: #292936;
+    --card: #21212e;
+
+    --accent: #ff8c33;
+    --accent-strong: #ff9d4f;
+    --mint: #4dd9b8;
+    --rose: #f2597f;
+    --lavender: #a680f2;
+    --sky: #59a6ff;
+    --gold: #ffd14d;
+
+    --text: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.65);
+    --text-tertiary: rgba(255, 255, 255, 0.35);
+    --divider: rgba(255, 255, 255, 0.08);
+
+    --accent-soft: rgba(255, 140, 51, 0.16);
+    --mint-soft: rgba(77, 217, 184, 0.16);
+    --rose-soft: rgba(242, 89, 127, 0.16);
+    --lavender-soft: rgba(166, 128, 242, 0.16);
+    --sky-soft: rgba(89, 166, 255, 0.16);
+    --gold-soft: rgba(255, 209, 77, 0.16);
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.45);
+    --shadow-accent: 0 10px 30px rgba(255, 140, 51, 0.3);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Base
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  /* offset anchor targets so they aren't hidden behind the sticky header */
+  scroll-padding-top: calc(var(--header-height) + 16px);
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 1.0625rem;
+}
+
+/* Shared container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+}
+
+/* Fluid section rhythm */
+.section {
+  padding-block: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+.section__head {
+  max-width: 42rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+/* Headings — fluid type via clamp() */
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+.lead {
+  color: var(--text-secondary);
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  line-height: 1.55;
+}
+
+/* Accessible visible focus for keyboard users */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Screen-reader-only utility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1.1rem;
+  border-radius: 0 0 var(--r-sm) var(--r-sm);
+  font-weight: 600;
+  z-index: 100;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translate(-50%, 0);
+}
+
+/* --------------------------------------------------------------------------
+   4. Buttons & badges
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-accent);
+}
+
+.btn--primary:hover {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--divider);
+}
+
+.btn--ghost:hover {
+  background: var(--surface);
+}
+
+/* App Store badge image link */
+.badge-link {
+  display: inline-block;
+  border-radius: var(--r-md);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.badge-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.badge-link img {
+  height: 52px;
+  width: auto;
+}
+
+/* --------------------------------------------------------------------------
+   5. Header / navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--divider);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text);
+}
+
+.nav__logo img {
+  height: 30px;
+  width: auto;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav__links a {
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.nav__links a:hover {
+  color: var(--text);
+}
+
+.nav__cta .badge-link img {
+  height: 40px;
+}
+
+/* Hamburger toggle — hidden on desktop */
+.nav__toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.nav__toggle svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3rem, 9vw, 6rem);
+}
+
+/* warm radial glow behind the hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 80% 0%, var(--accent-soft), transparent 70%),
+    radial-gradient(50% 50% at 0% 30%, var(--mint-soft), transparent 70%);
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  align-items: center;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 7vw, 4.25rem);
+}
+
+.hero__title .accent {
+  color: var(--accent);
+}
+
+.hero__lead {
+  margin-top: 1.25rem;
+  max-width: 34rem;
+}
+
+.hero__actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero__note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+}
+
+/* Phone mockup — drawn entirely in CSS/markup, no image asset needed */
+.hero__media {
+  display: flex;
+  justify-content: center;
+}
+
+.phone {
+  position: relative;
+  width: min(280px, 78vw);
+  aspect-ratio: 9 / 19;
+  background: var(--card);
+  border-radius: 44px;
+  padding: 14px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--divider);
+}
+
+.phone::before {
+  /* notch */
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 38%;
+  height: 22px;
+  background: var(--text);
+  border-radius: 0 0 14px 14px;
+  opacity: 0.85;
+  z-index: 2;
+}
+
+.phone__screen {
+  height: 100%;
+  border-radius: 32px;
+  background: linear-gradient(180deg, var(--surface), var(--bg));
+  padding: 1.4rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  overflow: hidden;
+}
+
+.phone__greeting {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.phone__q {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.32rem 0.6rem;
+  border-radius: var(--r-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.recipe-card {
+  margin-top: auto;
+  background: var(--card);
+  border: 1px solid var(--divider);
+  border-radius: var(--r-md);
+  padding: 0.8rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.recipe-card__img {
+  height: 64px;
+  border-radius: var(--r-sm);
+  background: linear-gradient(120deg, var(--accent), var(--gold));
+}
+
+.recipe-card__title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-top: 0.55rem;
+}
+
+.recipe-card__match {
+  font-size: 0.72rem;
+  color: var(--mint);
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. Features grid
+   -------------------------------------------------------------------------- */
+.features__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.feature {
+  background: var(--card);
+  border: 1px solid var(--divider);
+  border-radius: var(--r-lg);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, box-shadow 0.2s ease;
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-md);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/* per-feature accent tinting */
+.feature--accent .feature__icon { background: var(--accent-soft); }
+.feature--mint .feature__icon { background: var(--mint-soft); }
+.feature--sky .feature__icon { background: var(--sky-soft); }
+.feature--lavender .feature__icon { background: var(--lavender-soft); }
+.feature--rose .feature__icon { background: var(--rose-soft); }
+
+.feature h3 {
+  margin-bottom: 0.5rem;
+}
+
+.feature p {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+.feature__tag {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  background: var(--lavender-soft);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--r-pill);
+}
+
+/* --------------------------------------------------------------------------
+   8. How it works
+   -------------------------------------------------------------------------- */
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.6rem 1.6rem;
+}
+
+.step__num {
+  counter-increment: step;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.step__num::before {
+  content: counter(step);
+}
+
+.step h3 {
+  margin-bottom: 0.4rem;
+}
+
+.step p {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Pricing
+   -------------------------------------------------------------------------- */
+.pricing__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.plan {
+  background: var(--card);
+  border: 1px solid var(--divider);
+  border-radius: var(--r-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.plan--featured {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-accent);
+  position: relative;
+}
+
+.plan__flag {
+  position: absolute;
+  top: -0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--r-pill);
+}
+
+.plan__name {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.plan__price {
+  margin-top: 0.5rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.plan__price small {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+}
+
+.plan__trial {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--mint);
+  font-weight: 600;
+}
+
+.plan__features {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.plan__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+.plan__features li::before {
+  content: "✓";
+  color: var(--mint);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.plan__cta {
+  margin-top: 1.75rem;
+}
+
+.plan__cta .btn {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   10. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--divider);
+  background: var(--surface);
+  padding-block: 3rem;
+}
+
+.footer__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footer__brand img {
+  height: 30px;
+  margin-bottom: 0.75rem;
+}
+
+.footer__brand p {
+  color: var(--text-secondary);
+  max-width: 22rem;
+  font-size: 0.95rem;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer__links a {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.15s ease;
+}
+
+.footer__links a:hover {
+  color: var(--text);
+}
+
+.footer__bottom {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--divider);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. Scroll-reveal animation (progressive enhancement; JS adds .is-visible)
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsive — tablet & up
+   -------------------------------------------------------------------------- */
+@media (min-width: 720px) {
+  .features__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .pricing__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero .container {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+
+  .features__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Let the last two feature cards center nicely on the 3-col grid */
+  .features__grid .feature:nth-child(4) {
+    grid-column: 1 / 2;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. Responsive — mobile nav (below tablet)
+   -------------------------------------------------------------------------- */
+@media (max-width: 719px) {
+  .nav__toggle {
+    display: inline-flex;
+  }
+
+  .nav__menu {
+    position: fixed;
+    inset: var(--header-height) 0 auto 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--divider);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem var(--page-padding) 2rem;
+    box-shadow: var(--shadow-md);
+
+    /* hidden by default, revealed via [data-open] */
+    transform: translateY(-12px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  .nav__menu[data-open="true"] {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .nav__cta .badge-link img {
+    height: 48px;
+  }
+}
