@@ -11,6 +11,9 @@ step — the files you see are the files that ship.
 - **HTML5** — semantic, accessible markup
 - **CSS** — design tokens as custom properties (mirroring the iOS app's theme),
   mobile-first responsive layout, automatic light/dark mode via `prefers-color-scheme`
+- **Type** — body/UI use the native system-rounded stack (matching the app); headings
+  use **Fraunces** (loaded from Google Fonts with `display=swap`, falling back to a system
+  serif if the network fails)
 - **Vanilla JS** — progressive enhancement only (mobile nav, scroll-reveal, footer year);
   the page works fully with JavaScript disabled
 

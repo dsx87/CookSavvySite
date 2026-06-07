@@ -33,6 +33,15 @@
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="apple-touch-icon" href="assets/favicon.svg" />
 
+    <!-- Display font: Fraunces (headings only; body stays on the system stack).
+         display=swap avoids blocking render; preconnect speeds up the fetch. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&display=swap"
+    />
+
     <!-- Styles -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/styles.css" />
@@ -47,7 +56,7 @@
     <!-- ===================== Header / nav ===================== -->
     <header class="site-header">
       <nav class="nav container" aria-label="Primary">
-        <a class="nav__logo" href="#top" aria-label="CookSavvy home">
+        <a class="nav__logo" href="#main" aria-label="CookSavvy home">
           <img src="assets/logo.svg" alt="CookSavvy" width="220" height="48" />
         </a>
 
@@ -82,8 +91,6 @@
     </header>
 
     <main id="main">
-      <span id="top"></span>
-
       <!-- ===================== Hero ===================== -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="container">
@@ -245,7 +252,6 @@
             <article class="plan reveal" aria-labelledby="plan-free">
               <h3 class="plan__name" id="plan-free">Free</h3>
               <p class="plan__price">$0<small> / forever</small></p>
-              <p class="plan__trial">&nbsp;</p>
               <ul class="plan__features">
                 <li>Manual ingredient input</li>
                 <li>5 camera ingredient scans per week</li>
