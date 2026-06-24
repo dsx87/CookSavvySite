@@ -71,7 +71,7 @@ Search the codebase for `TODO` — these are the spots to update:
 |------|-------|----------------|
 | **App Store URL** | every `href="#"` on an App Store badge / CTA in `index.html` | `#` placeholder |
 | **Pricing** | Pricing section in `index.html` | `$2.99 / month` (confirm before launch) |
-| **Legal values** | `privacy.html` & `terms.html` | `[COMPANY_LEGAL_NAME]`, `[CONTACT_EMAIL]`, `[GOVERNING_JURISDICTION]` (shown highlighted) |
+| **Legal values** | `privacy.html` & `terms.html` | ✅ filled — operator "Igor Pivnyk", contact `consul87@gmail.com`; governing-law clause intentionally omitted |
 | **Contact link** | footer in `index.html` | removed until a support email exists |
 | **Domain / SEO** | `index.html` `<head>` | `canonical`, `og:url`, `og:image` omitted until a domain is chosen |
 
