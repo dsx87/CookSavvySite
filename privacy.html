@@ -50,7 +50,7 @@
           <a class="legal__back" href="index.html">&larr; Back to home</a>
 
           <h1>Privacy Policy</h1>
-          <p class="legal__updated">Last updated: 25 June 2026</p>
+          <p class="legal__updated">Last updated: 24 August 2026</p>
 
           <h2>Who we are</h2>
           <p>
@@ -64,6 +64,7 @@
             <li>We do <strong>not</strong> track you across apps or websites and do <strong>not</strong> sell your data.</li>
             <li>The app works anonymously by default; signing in with Apple is optional.</li>
             <li>Photos you scan are sent to our backend solely to detect ingredients, then discarded.</li>
+            <li>Verified subscription history is linked to your account so we can grant and restore access.</li>
             <li>We use privacy-preserving analytics and crash reporting to improve the app.</li>
           </ul>
 
@@ -72,15 +73,23 @@
           <h3>Account information</h3>
           <ul>
             <li>
-              <strong>Anonymous identifier.</strong> On first launch we create an
-              anonymous account (via Supabase) so the app can reach its backend.
-              This is a random identifier, not tied to your personal identity.
+              <strong>Account identifier.</strong> On first launch we create a
+              random account identifier (via Supabase) so the app can reach its
+              backend. It is anonymous until you choose to sign in, but it remains
+              linked to account data such as your subscription history. We attach
+              it to subscription purchases so we can match those purchases to your
+              account.
             </li>
             <li>
               <strong>Sign in with Apple (optional).</strong> If you choose to sign
-              in, Apple provides a stable user identifier that links your anonymous
-              data to a persistent account. We do not receive your Apple password.
-              We only request the minimum identifier needed to maintain your account.
+              in, Apple provides a stable user identifier and your
+              <strong>email address</strong>, and your existing anonymous account
+              becomes a persistent one under that identity. If you use Apple's
+              <strong>Hide My Email</strong>, we only ever see the private relay
+              address, never your real one. We use the email address solely to
+              identify and support your account &mdash; we do not send you marketing
+              email, and we do not receive your Apple password. Your name is not
+              stored.
             </li>
           </ul>
 
@@ -108,22 +117,29 @@
           <h3>Usage and diagnostics</h3>
           <ul>
             <li>
-              <strong>Analytics (TelemetryDeck).</strong> Aggregate,
-              privacy-preserving product-interaction events (e.g. "recipe viewed")
-              to understand feature usage. No IDFA, no cross-app tracking.
+              <strong>Analytics (TelemetryDeck).</strong> Product-interaction events
+              (e.g. "recipe viewed") and a non-advertising device identifier used
+              for aggregate analytics. This data is not linked to your identity or
+              used for tracking. We do not use the IDFA.
             </li>
             <li>
-              <strong>Crash reports (Sentry).</strong> Diagnostic data when the app
-              crashes or logs an error, used to fix bugs. We log error
-              <em>types</em>, not raw error payloads, to avoid capturing sensitive
-              data.
+              <strong>Crash reports (Sentry).</strong> Crash data, performance data,
+              and other diagnostic data used to fix bugs and improve reliability.
+              App-authored logging sends error <em>types</em>, not raw error payloads,
+              to reduce the risk of capturing sensitive data. This data is not
+              linked to your identity or used for tracking.
             </li>
           </ul>
 
           <h3>Subscriptions</h3>
           <p>
-            Purchases are handled by Apple via StoreKit. We receive entitlement
-            status (e.g. active/trial), not your payment details.
+            Purchases are handled by Apple via StoreKit. After a purchase or restore,
+            the app sends the Apple-signed transaction to our backend for verification.
+            We retain the product identifier, original and current transaction
+            identifiers, transaction and signing dates, StoreKit environment,
+            expiration date, and revocation status against your account so we can
+            grant and restore access. We do not receive your payment-card or Apple
+            Account payment details.
           </p>
 
           <h2>How we use information</h2>
@@ -148,8 +164,9 @@
             <li>
               You can delete your account at any time in
               <strong>Settings &rarr; Delete Account</strong>. This permanently
-              deletes your server-side account and associated data and removes your
-              personal data stored on the device.
+              deletes your server-side account and associated data, including its
+              subscription metadata, and removes your personal data stored on the
+              device. This does not delete purchase records retained by Apple.
             </li>
             <li>
               Anonymous sessions and transient photo data are retained only as long
