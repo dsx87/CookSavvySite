@@ -50,7 +50,7 @@
           <a class="legal__back" href="index.html">&larr; Back to home</a>
 
           <h1>Privacy Policy</h1>
-          <p class="legal__updated">Last updated: 24 August 2026</p>
+          <p class="legal__updated">Last updated: 2 September 2026</p>
 
           <h2>Who we are</h2>
           <p>
@@ -63,7 +63,9 @@
           <ul>
             <li>We do <strong>not</strong> track you across apps or websites and do <strong>not</strong> sell your data.</li>
             <li>The app works anonymously by default; signing in with Apple is optional.</li>
-            <li>Photos you scan are sent to our backend solely to detect ingredients, then discarded.</li>
+            <li>Photos you scan are sent to our backend and on to a third-party AI provider solely to detect ingredients, then discarded &mdash; nothing is stored.</li>
+            <li>Ingredient names and recipe filters are sent to third-party recipe and AI providers to find or write recipes. Your name, email address and account identifier are never sent to any of them.</li>
+            <li>Some of those providers process data outside your country, including in Japan, the United States, Singapore and China. See <strong>International data transfers</strong> below.</li>
             <li>Verified subscription history is linked to your account so we can grant and restore access.</li>
             <li>We use privacy-preserving analytics and crash reporting to improve the app.</li>
           </ul>
@@ -88,18 +90,57 @@
               <strong>Hide My Email</strong>, we only ever see the private relay
               address, never your real one. We use the email address solely to
               identify and support your account &mdash; we do not send you marketing
-              email, and we do not receive your Apple password. Your name is not
-              stored.
+              email, and we do not receive your Apple password. We never ask Apple
+              for your name.
             </li>
           </ul>
 
           <h3>Photos you scan</h3>
           <p>
             When you use camera ingredient detection, the captured image is sent to
-            our backend AI service to identify ingredients. Images are processed
-            transiently for that request and are not used to build a profile of you
-            or for advertising. (Camera access is governed by the system permission
-            prompt.)
+            our backend, which forwards it to a third-party AI vision provider to
+            identify the ingredients in it. The provider is
+            <strong>Alibaba Cloud (DashScope)</strong>, using its international
+            endpoint in <strong>Singapore</strong>. If that request fails or returns
+            an unusable result, the image is sent instead to
+            <strong>Google (Gemini API)</strong>. This is the only feature in
+            CookSavvy that sends your photos anywhere. The image is used only to
+            answer that one request &mdash; we do not store it on our servers, and
+            it is not used to build a profile of you or for advertising. Your name,
+            email address and account identifier are not attached to the image.
+            (Camera access is governed by the system permission prompt. You can skip
+            camera scanning entirely and add ingredients by hand; nothing then
+            leaves your device for this feature.)
+          </p>
+
+          <h3>Ingredient searches and generated recipes</h3>
+          <p>
+            CookSavvy searches an offline recipe database on your device by
+            default. Two CookSavvy+ features reach outside it:
+          </p>
+          <ul>
+            <li>
+              <strong>Online recipe search.</strong> The names of the ingredients
+              you selected are sent to our backend, which queries
+              <strong>Spoonacular</strong>, a third-party recipe API, for matching
+              recipes.
+            </li>
+            <li>
+              <strong>AI-generated recipes.</strong> The ingredient names you
+              selected, together with the filters you applied, are sent to our
+              backend, which forwards them to a third-party AI provider to write
+              the recipe. The provider is <strong>Alibaba Cloud (DashScope)</strong>
+              on its Singapore endpoint, falling back to <strong>OpenAI</strong> if
+              that request fails.
+            </li>
+          </ul>
+          <p>
+            Neither request includes a photo, and neither includes your name, email
+            address or account identifier. Both are processed transiently to answer
+            that one request. For online recipe search we cache the result for 24
+            hours so a repeated search does not re-query Spoonacular; that cache
+            stores only the ingredient names searched for and is not linked to your
+            account.
           </p>
 
           <h3>Search queries (Smart Search)</h3>
@@ -108,10 +149,13 @@
             vegetarian pasta"). On devices that support on-device AI (Apple
             Intelligence), this text is processed <strong>entirely on your
             device</strong> and never leaves it. On devices without on-device AI, the
-            text is sent to our backend, which uses a third-party AI provider
-            (DeepSeek) to interpret it. The query is processed transiently for that
-            request, is not linked to your identity, and is not used for advertising
-            or to build a profile.
+            text is sent to our backend, which forwards it to
+            <strong>DeepSeek</strong>, a third-party AI provider based in
+            <strong>China</strong>, to interpret it. There is no fallback provider
+            for this feature. The query is processed transiently for that request,
+            is not linked to your identity, and is not used for advertising or to
+            build a profile. If you would rather this text never left your device,
+            use a device with Apple Intelligence.
           </p>
 
           <h3>Usage and diagnostics</h3>
@@ -150,12 +194,43 @@
 
           <h2>Data sharing</h2>
           <p>
-            We share data only with processors that help us run the app: Apple
-            (sign-in, payments), Supabase (backend/auth), TelemetryDeck (analytics),
-            Sentry (crash reporting), and &mdash; only for Smart Search on devices
-            without on-device AI &mdash; DeepSeek (natural-language query
-            interpretation). We do not sell personal data and do not use it for
-            cross-app tracking.
+            We share data only with service providers that help us run the app,
+            and only the minimum each one needs to answer a single request. We do
+            not sell personal data and do not use it for cross-app tracking. Those
+            providers are: <strong>Apple</strong> (sign-in, payments),
+            <strong>Supabase</strong> (backend, database and authentication),
+            <strong>Alibaba Cloud (DashScope)</strong> (primary AI provider for
+            ingredient detection and recipe generation),
+            <strong>Google (Gemini API)</strong> (fallback for ingredient
+            detection), <strong>OpenAI</strong> (fallback for recipe generation),
+            <strong>DeepSeek</strong> (Smart Search query interpretation, on
+            devices without on-device AI), <strong>Spoonacular</strong> (online
+            recipe search), <strong>TelemetryDeck</strong> (analytics), and
+            <strong>Sentry</strong> (crash reporting). Your account identifier
+            reaches our own backend with every request &mdash; it is how
+            subscription access and free-tier allowances are enforced &mdash; but
+            it is <strong>not</strong> forwarded to the AI, recipe or analytics
+            providers above. They receive only the photo, ingredient names,
+            filters or query text needed to answer that request.
+          </p>
+
+          <h2>International data transfers</h2>
+          <p>
+            CookSavvy's service providers are spread across several countries, so
+            depending on which features you use, the data described above may be
+            processed in <strong>Japan</strong> (our backend), the
+            <strong>United States</strong>, <strong>Singapore</strong> (Alibaba
+            Cloud's international DashScope endpoint), <strong>China</strong>
+            (DeepSeek &mdash; Smart Search only, and only on devices without
+            on-device AI) and the <strong>European Union</strong>. Some of these
+            countries may not offer the same level of data protection as your own.
+            We limit what crosses a border to the minimum needed to answer each
+            request: your name, email address and account identifier are never
+            included in those onward requests, and we rely on our providers'
+            standard contractual terms for these transfers. You can avoid two of
+            these transfers entirely: add ingredients by hand instead of scanning,
+            and use Smart Search on a device with Apple Intelligence, where the
+            query never leaves your device.
           </p>
 
           <h2>Data retention and deletion</h2>
@@ -165,11 +240,22 @@
               <strong>Settings &rarr; Delete Account</strong>. This permanently
               deletes your server-side account and associated data, including its
               subscription metadata, and removes your personal data stored on the
-              device. This does not delete purchase records retained by Apple.
+              device. This does not delete purchase records retained by Apple, and
+              it does not cancel an active CookSavvy+ subscription &mdash;
+              subscriptions are billed by Apple and continue until you cancel them
+              yourself in Settings &rarr; App Store &rarr; Subscriptions.
             </li>
             <li>
-              Anonymous sessions and transient photo data are retained only as long
-              as needed to provide the feature requested.
+              Photos, recipe filters and search queries are <strong>not stored on
+              our servers</strong>. They exist only for as long as the request
+              that uses them, and are discarded when it completes. We do keep a
+              per-account counter of which endpoint was called and when, so
+              free-tier allowances and subscription access can be enforced; it
+              contains no request content. For online recipe search only, we cache
+              the result for 24 hours so a repeated search does not re-query
+              Spoonacular; that cache row stores the ingredient names searched
+              for, is not linked to your account, and is deleted automatically
+              when it expires.
             </li>
           </ul>
 
@@ -190,7 +276,9 @@
           <h2>Changes</h2>
           <p>
             We may update this policy; material changes will be reflected by the
-            "Last updated" date.
+            "Last updated" date. The 2 September 2026 update named every
+            third-party AI and recipe provider individually, and added the
+            International data transfers section.
           </p>
 
           <h2>Contact</h2>
