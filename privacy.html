@@ -50,7 +50,7 @@
           <a class="legal__back" href="index.html">&larr; Back to home</a>
 
           <h1>Privacy Policy</h1>
-          <p class="legal__updated">Last updated: 22 October 2026</p>
+          <p class="legal__updated">Last updated: 24 October 2026</p>
 
           <h2>Who we are</h2>
 
@@ -85,7 +85,8 @@
 
           <li>
             Some of those providers process data outside your country, including in Japan, the
-            United States, Singapore and China. See <strong>International data
+            United States, Singapore and other countries where a provider's cloud servers are
+            located. See <strong>International data
             transfers</strong> below.
           </li>
 
@@ -218,18 +219,23 @@
             Smart Search lets you type a natural-language request (e.g. "quick vegetarian
             pasta"). On devices that support on-device AI (Apple Intelligence), this text is
             processed <strong>entirely on your device</strong> and never leaves it. On devices
-            without on-device AI, the text is sent to our backend, which forwards it to
-            <strong>DeepSeek</strong>, a third-party AI provider based in
-            <strong>China</strong>, to interpret it. There is no fallback provider for this
-            feature — if DeepSeek is unavailable, the search simply fails.
+            without on-device AI, the text is sent to our backend, which matches it against our
+            own ingredient list and sends it to <strong>TypeSafe Jev</strong>, reached through
+            <strong>defapi.org</strong> (operated by KeyStorm LLC, United States), to detect
+            cooking time, mood, dietary needs and requests we will not answer. When our own
+            matching is not enough — for example a misspelling, an ingredient to avoid or a dish
+            name — the text also goes to <strong>Alibaba Cloud (DashScope, Qwen model)</strong>,
+            processed in <strong>Singapore</strong>, to interpret ingredients and dishes. If a
+            provider is unavailable, we answer from the other where that is safe; otherwise the
+            search fails and you can retry.
           </li>
 
           <li>
             The query is processed transiently for that request and is not used for advertising
             or to build a profile. Your account identifier reaches our own backend with the
             request — it is how the daily free-tier allowance is counted — but it is not passed
-            on to DeepSeek. If you would rather this text never left your device, use a device
-            with Apple Intelligence.
+            on to either AI provider. We do not log or retain the text of your query. If you would
+            rather this text never left your device, use a device with Apple Intelligence.
           </li>
 
           </ul>
@@ -332,9 +338,19 @@
           </li>
 
           <li>
-            <strong>DeepSeek</strong> — <strong>What it receives:</strong> Smart Search query
-            text. <strong>Why:</strong> Interpreting natural-language search, on devices without
-            on-device AI. <strong>Processed in:</strong> China.
+            <strong>Alibaba Cloud (DashScope, Qwen)</strong> — <strong>What it receives:</strong>
+            Smart Search query text. <strong>Why:</strong> Interpreting ingredients and dishes in
+            natural-language search, on devices without on-device AI. <strong>Processed
+            in:</strong> Singapore.
+          </li>
+
+          <li>
+            <strong>TypeSafe Jev (via defapi.org, operated by KeyStorm LLC)</strong> —
+            <strong>What it receives:</strong> Smart Search query text. <strong>Why:</strong>
+            Detecting cooking time, mood, dietary needs and unsafe requests in natural-language
+            search, on devices without on-device AI. <strong>Processed in:</strong> United
+            States-based operator; its cloud servers (AWS / Google Cloud) may be in other
+            countries, which it does not name.
           </li>
 
           <li>
@@ -373,8 +389,9 @@
             which features you use, the data described above may be processed in
             <strong>Japan</strong> (our backend), the <strong>United States</strong>,
             <strong>Singapore</strong> (Alibaba Cloud's international DashScope endpoint),
-            <strong>China</strong> (DeepSeek — Smart Search only, and only on devices without
-            on-device AI) and the <strong>European Union</strong>. Some of these countries may
+            other countries where defapi.org's cloud servers are located (TypeSafe Jev — Smart
+            Search only, and only on devices without on-device AI) and the <strong>European
+            Union</strong>. Some of these countries may
             not offer the same level of data protection as your own.
           </p>
 
