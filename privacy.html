@@ -50,7 +50,7 @@
           <a class="legal__back" href="index.html">&larr; Back to home</a>
 
           <h1>Privacy Policy</h1>
-          <p class="legal__updated">Last updated: 4 November 2026</p>
+          <p class="legal__updated">Last updated: 5 November 2026</p>
 
           <h2>Who we are</h2>
 
@@ -217,17 +217,19 @@
 
           <li>
             Smart Search lets you type a natural-language request (e.g. "quick vegetarian
-            pasta"). On devices that support on-device AI (Apple Intelligence), this text is
-            processed <strong>entirely on your device</strong> and never leaves it. On devices
-            without on-device AI, the text is sent to our backend, which matches it against our
-            own ingredient list and sends it to <strong>TypeSafe Jev</strong>, reached through
-            <strong>defapi.org</strong> (operated by KeyStorm LLC, United States), to detect
-            cooking time, dietary needs and requests we will not answer. When our own
-            matching is not enough — for example a misspelling, an ingredient to avoid or a dish
-            name — the text also goes to <strong>Alibaba Cloud (DashScope, Qwen model)</strong>,
-            processed in <strong>Singapore</strong>, to interpret ingredients and dishes. If a
-            provider is unavailable, we answer from the other where that is safe; otherwise the
-            search fails and you can retry.
+            pasta"). With Apple Intelligence, this text is first processed
+            <strong>on your device</strong>. It is sent to our backend only when on-device
+            processing is unavailable, fails or is too slow. A safety refusal from the on-device
+            model is not sent anywhere. On devices without Apple Intelligence, the text is always
+            sent to our backend, which matches it against our own ingredient list and sends it to
+            <strong>TypeSafe Jev</strong>, reached through <strong>defapi.org</strong> (operated by
+            KeyStorm LLC, United States), to detect cooking time, dietary needs and requests we
+            will not answer. When our own matching is not enough — for example a misspelling, an
+            ingredient to avoid or a dish name — the text also goes to
+            <strong>Alibaba Cloud (DashScope, Qwen model)</strong>, processed in
+            <strong>Singapore</strong>, to interpret ingredients and dishes. If a provider is
+            unavailable, we answer from the other where that is safe; otherwise the search fails
+            and you can retry.
           </li>
 
           <li>
@@ -236,8 +238,8 @@
             request — it is how the daily free-tier allowance is counted — but it is not passed
             on to either AI provider. We do not log or retain the text of your query; we send it to
             the providers above only to answer that request, and what they keep is governed by
-            their own policies. If you would
-            rather this text never left your device, use a device with Apple Intelligence.
+            their own policies. On a device with Apple Intelligence, the text stays on your device
+            unless on-device processing is unavailable, fails or is too slow.
           </li>
 
           </ul>
@@ -342,15 +344,17 @@
           <li>
             <strong>Alibaba Cloud (DashScope, Qwen)</strong> — <strong>What it receives:</strong>
             Smart Search query text. <strong>Why:</strong> Interpreting ingredients and dishes in
-            natural-language search, on devices without on-device AI. <strong>Processed
+            natural-language search, only when on-device processing is unavailable, fails or is
+            too slow (always on devices without Apple Intelligence). <strong>Processed
             in:</strong> Singapore.
           </li>
 
           <li>
             <strong>TypeSafe Jev (via defapi.org, operated by KeyStorm LLC)</strong> —
             <strong>What it receives:</strong> Smart Search query text. <strong>Why:</strong>
-            Detecting cooking time, dietary needs and unsafe requests in natural-language
-            search, on devices without on-device AI. <strong>Processed in:</strong> United
+            Detecting cooking time, dietary needs and unsafe requests in natural-language search, only when
+            on-device processing is unavailable, fails or is too slow (always on devices without
+            Apple Intelligence). <strong>Processed in:</strong> United
             States-based operator; its cloud servers (AWS / Google Cloud) may be in other
             countries, which it does not name.
           </li>
@@ -391,10 +395,10 @@
             which features you use, the data described above may be processed in
             <strong>Japan</strong> (our backend), the <strong>United States</strong>,
             <strong>Singapore</strong> (Alibaba Cloud's international DashScope endpoint),
-            other countries where defapi.org's cloud servers are located (TypeSafe Jev — Smart
-            Search only, and only on devices without on-device AI) and the <strong>European
-            Union</strong>. Some of these countries may
-            not offer the same level of data protection as your own.
+            other countries where defapi.org's cloud servers process Smart Search text for TypeSafe
+            Jev (not named by the provider; Smart Search only, and only when on-device processing is
+            unavailable, fails or is too slow) and the <strong>European Union</strong>. Some of these
+            countries may not offer the same level of data protection as your own.
           </p>
 
           <p>
@@ -408,9 +412,9 @@
           </p>
 
           <p>
-            You can avoid two of these transfers entirely: add ingredients by hand instead of
-            scanning, and use Smart Search on a device with Apple Intelligence, where the query
-            never leaves your device.
+            You can avoid the photo transfers by adding ingredients by hand instead of scanning. On
+            a device with Apple Intelligence, Smart Search text stays on your device unless
+            on-device processing is unavailable, fails or is too slow.
           </p>
 
           <h2>Data retention and deletion</h2>
