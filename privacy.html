@@ -50,7 +50,7 @@
           <a class="legal__back" href="index.html">&larr; Back to home</a>
 
           <h1>Privacy Policy</h1>
-          <p class="legal__updated">Last updated: 5 November 2026</p>
+          <p class="legal__updated">Last updated: 8 November 2026</p>
 
           <h2>Who we are</h2>
 
@@ -85,7 +85,7 @@
 
           <li>
             Some of those providers process data outside your country, including in Japan, the
-            United States, Singapore and other countries where a provider's cloud servers are
+            United States and other countries where a provider's cloud servers are
             located. See <strong>International data
             transfers</strong> below.
           </li>
@@ -135,10 +135,9 @@
             When you use camera ingredient detection, the image &mdash; a photo you take, or one
             you pick from your photo library &mdash; is sent to our backend,
             which forwards it to a third-party AI vision provider to identify the ingredients in
-            it. The provider is <strong>Alibaba Cloud (DashScope)</strong>, using its
-            international endpoint in <strong>Singapore</strong>. If that request fails or
-            returns an unusable result, the image is sent instead to <strong>Google (Gemini
-            API)</strong>. This is the only feature in CookSavvy that sends your photos
+            it. The provider is <strong>Anthropic (Claude API)</strong>. If that request fails or
+            returns an unusable or low-confidence result, the image is sent instead to
+            <strong>OpenAI</strong>. This is the only feature in CookSavvy that sends your photos
             anywhere.
           </li>
 
@@ -187,9 +186,8 @@
             query</strong> (for example vegetarian, gluten-free, dairy-free), including any allergy
             selections (for example egg, soy, sesame, fish or shellfish) and the names of
             ingredients you ask CookSavvy to avoid — are sent to our backend, which forwards them
-            to a third-party AI provider to write the recipe. The provider is <strong>Alibaba
-            Cloud (DashScope)</strong> on its Singapore endpoint, falling back to
-            <strong>OpenAI</strong> if that request fails.
+            to a third-party AI provider to write the recipe. The provider is <strong>Anthropic
+            (Claude API)</strong>, falling back to <strong>OpenAI</strong> if that request fails.
           </li>
 
           </ul>
@@ -226,17 +224,17 @@
             KeyStorm LLC, United States), to detect cooking time, dietary needs and requests we
             will not answer. When our own matching is not enough — for example a misspelling, an
             ingredient to avoid or a dish name — the text also goes to
-            <strong>Alibaba Cloud (DashScope, Qwen model)</strong>, processed in
-            <strong>Singapore</strong>, to interpret ingredients and dishes. If a provider is
-            unavailable, we answer from the other where that is safe; otherwise the search fails
-            and you can retry.
+            <strong>Anthropic (Claude API)</strong> to interpret ingredients and dishes, falling
+            back to <strong>OpenAI</strong> if that request fails. If a provider is unavailable, we
+            answer from the others where that is safe; otherwise the search fails and you can
+            retry.
           </li>
 
           <li>
             The query is processed transiently for that request and is not used for advertising
             or to build a profile. Your account identifier reaches our own backend with the
             request — it is how the daily free-tier allowance is counted — but it is not passed
-            on to either AI provider. We do not log or retain the text of your query; we send it to
+            on to any provider. We do not log or retain the text of your query; we send it to
             the providers above only to answer that request, and what they keep is governed by
             their own policies. On a device with Apple Intelligence, the text stays on your device
             unless on-device processing is unavailable, fails or is too slow.
@@ -321,32 +319,20 @@
           </li>
 
           <li>
-            <strong>Alibaba Cloud (DashScope)</strong> — <strong>What it receives:</strong>
-            Scanned photos; ingredient names and recipe filters. <strong>Why:</strong> Primary
-            AI provider for ingredient detection and recipe generation. <strong>Processed
-            in:</strong> Singapore.
-          </li>
-
-          <li>
-            <strong>Google (Gemini API)</strong> — <strong>What it receives:</strong> Scanned
-            photos. <strong>Why:</strong> Fallback AI provider for ingredient detection; used
-            only when the primary fails. <strong>Processed in:</strong> Global infrastructure,
-            including outside your country.
-          </li>
-
-          <li>
-            <strong>OpenAI</strong> — <strong>What it receives:</strong> Ingredient names and
-            recipe filters. <strong>Why:</strong> Fallback AI provider for recipe generation;
-            used only when the primary fails. <strong>Processed in:</strong> Global
+            <strong>Anthropic (Claude API)</strong> — <strong>What it receives:</strong> Scanned
+            photos; ingredient names and recipe filters; Smart Search query text. <strong>Why:</strong>
+            Primary AI provider for ingredient detection and recipe generation; Smart Search
+            query text only when on-device processing is unavailable, fails or is too slow (always
+            on devices without Apple Intelligence). <strong>Processed in:</strong> Global
             infrastructure, including outside your country.
           </li>
 
           <li>
-            <strong>Alibaba Cloud (DashScope, Qwen)</strong> — <strong>What it receives:</strong>
-            Smart Search query text. <strong>Why:</strong> Interpreting ingredients and dishes in
-            natural-language search, only when on-device processing is unavailable, fails or is
-            too slow (always on devices without Apple Intelligence). <strong>Processed
-            in:</strong> Singapore.
+            <strong>OpenAI</strong> — <strong>What it receives:</strong> Scanned photos; ingredient
+            names and recipe filters; Smart Search query text. <strong>Why:</strong> Fallback AI
+            provider for ingredient detection, recipe generation and Smart Search; used only when
+            the primary fails. <strong>Processed in:</strong> Global infrastructure, including
+            outside your country.
           </li>
 
           <li>
@@ -394,7 +380,6 @@
             CookSavvy's service providers are spread across several countries, so depending on
             which features you use, the data described above may be processed in
             <strong>Japan</strong> (our backend), the <strong>United States</strong>,
-            <strong>Singapore</strong> (Alibaba Cloud's international DashScope endpoint),
             other countries where defapi.org's cloud servers process Smart Search text for TypeSafe
             Jev (not named by the provider; Smart Search only, and only when on-device processing is
             unavailable, fails or is too slow) and the <strong>European Union</strong>. Some of these
@@ -479,7 +464,9 @@
             date. The 2026-09-02 update named every third-party AI and recipe provider
             individually, and added the International data transfers section. The 2026-09-08
             publication brings this page into agreement with that policy, including the current
-            ingredient-detection fallback and recipe-filter disclosures.
+            ingredient-detection fallback and recipe-filter disclosures. The 2026-11-08 update
+            replaced Alibaba Cloud (DashScope) and Google (Gemini API) with Anthropic as the primary
+            AI provider and OpenAI as the fallback.
           </p>
 
           <h2>Contact</h2>
