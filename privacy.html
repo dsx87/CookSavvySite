@@ -50,7 +50,7 @@
           <a class="legal__back" href="index.html">&larr; Back to home</a>
 
           <h1>Privacy Policy</h1>
-          <p class="legal__updated">Last updated: 8 November 2026</p>
+          <p class="legal__updated">Last updated: 12 November 2026</p>
 
           <h2>Who we are</h2>
 
@@ -78,8 +78,9 @@
           </li>
 
           <li>
-            Ingredient names and recipe filters are sent to third-party recipe and AI providers
-            to find or write recipes. Your name, email address and account identifier are never
+            Ingredient names, recipe filters and, for online recipe search, text you type into
+            Discover's search box are sent to third-party recipe and AI providers to find or write
+            recipes. Your name, email address and account identifier are never
             sent to any of them.
           </li>
 
@@ -164,7 +165,7 @@
 
           </ul>
 
-          <h3>Ingredient searches and generated recipes</h3>
+          <h3>Recipe searches and generated recipes</h3>
 
           <p>
             CookSavvy searches an offline recipe database on your device by default. Two
@@ -175,8 +176,9 @@
 
           <li>
             <strong>Online recipe search.</strong> The <em>names</em> of the ingredients you
-            selected are sent to our backend, which queries <strong>Spoonacular</strong>, a
-            third-party recipe API, for matching recipes.
+            selected, or the text you type into Discover's search box, are sent to our backend,
+            which queries <strong>Spoonacular</strong>, a third-party recipe API, for matching
+            recipes.
           </li>
 
           <li>
@@ -204,9 +206,10 @@
             account identifier. Both are processed transiently to answer that one request, and
             neither is used to build a profile of you or for advertising. For online recipe
             search we do cache the <em>result</em> for 24 hours so a repeated search does not
-            re-query Spoonacular; that cache stores the ingredient names searched for, is not
-            linked to your account, and expires automatically. See <strong>Data retention and
-            deletion</strong>.
+            re-query Spoonacular. The cache is keyed by a one-way hash of the search; for an
+            ingredient search it also stores the ingredient names, and for a typed search it
+            stores no query text. It is not linked to your account and expires automatically. See
+            <strong>Data retention and deletion</strong>.
           </p>
 
           <h3>Search queries (Smart Search)</h3>
@@ -346,7 +349,8 @@
           </li>
 
           <li>
-            <strong>Spoonacular</strong> — <strong>What it receives:</strong> Ingredient names.
+            <strong>Spoonacular</strong> — <strong>What it receives:</strong> Ingredient names;
+            text typed into Discover's search box.
             <strong>Why:</strong> Online recipe search (CookSavvy+). <strong>Processed
             in:</strong> Global infrastructure, including outside your country.
           </li>
@@ -419,8 +423,8 @@
 
           <li>
             Photos, recipe filters and search queries are <strong>not stored on our
-            servers</strong>. They exist only for as long as the request that uses them, and are
-            discarded when it completes.
+            servers</strong>, except as described below. They exist only for as long as the
+            request that uses them, and are discarded when it completes.
           </li>
 
           <li>
@@ -428,9 +432,10 @@
             endpoint was called and when, so free-tier allowances and subscription access can be
             enforced; it contains no request content. Second, for online recipe search only, we
             cache the <em>result</em> for 24 hours so a repeated search does not re-query
-            Spoonacular; that cache row stores the list of ingredient names that was searched
-            for, and is <strong>not</strong> linked to your account or to any identifier of
-            yours. It is deleted automatically when it expires.
+            Spoonacular. The cache row is keyed by a one-way hash of the search. For an ingredient
+            search it also stores the list of ingredient names; for a typed search it stores no
+            query text. The row is <strong>not</strong> linked to your account or to any
+            identifier of yours, and it is deleted automatically when it expires.
           </li>
 
           <li>
@@ -466,7 +471,9 @@
             publication brings this page into agreement with that policy, including the current
             ingredient-detection fallback and recipe-filter disclosures. The 2026-11-08 update
             replaced Alibaba Cloud (DashScope) and Google (Gemini API) with Anthropic as the primary
-            AI provider and OpenAI as the fallback.
+            AI provider and OpenAI as the fallback. The 2026-11-12 update discloses that CookSavvy+
+            Discover text search sends the typed text to Spoonacular and that the 24-hour search
+            cache is keyed by a hash of the search.
           </p>
 
           <h2>Contact</h2>
